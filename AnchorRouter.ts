@@ -23,7 +23,7 @@ export class AnchorRouter {
 
     /**
      * Request to create anchor
-     *
+     * TODO
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -44,7 +44,7 @@ export class AnchorRouter {
 
     /**
      * Request to retrieve anchor by anchorId
-     *
+     * TODO
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -61,7 +61,7 @@ export class AnchorRouter {
 
     /**
      * Request to retrieve anchors by nodeId
-     *
+     * TODO
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -80,7 +80,7 @@ export class AnchorRouter {
 
     /**
      * Request to retrieve anchors by nodeId
-     *
+     * TODO
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -100,15 +100,13 @@ export class AnchorRouter {
 
     /**
      * Request to delete the anchor with the given anchorId
-     *
      * @param req request object coming from client
      * @param res response object to send to client
      */
     AnchorExpressRouter.delete('/:anchorId', async (req: Request, res: Response) => {
       try {
-        const nodeId = req.params.nodeId
-        const response: IServiceResponse<IAnchor[]> =
-          await this.BackendAnchorGateway.getAnchorsByNodeId(nodeId)
+        const anchorId = req.params.anchorId
+        const response = await this.BackendAnchorGateway.deleteAnchor(anchorId)
         res.status(200).send(response)
       } catch (e) {
         res.status(500).send(e.message)
@@ -117,14 +115,13 @@ export class AnchorRouter {
 
     /**
      * Request to delete the anchor with the given anchorId
-     *
      * @param req request object coming from client
      * @param res response object to send to client
      */
     AnchorExpressRouter.post('/delete', async (req: Request, res: Response) => {
       try {
-        const anchorId = req.params.anchorId
-        const response = await this.BackendAnchorGateway.deleteAnchor(anchorId)
+        const anchorIds = req.body.anchorIds
+        const response = await this.BackendAnchorGateway.deleteAnchors(anchorIds)
         res.status(200).send(response)
       } catch (e) {
         res.status(500).send(e.message)
