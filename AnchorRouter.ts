@@ -23,7 +23,7 @@ export class AnchorRouter {
 
     /**
      * Request to create anchor
-     * TODO
+     * 
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -44,7 +44,7 @@ export class AnchorRouter {
 
     /**
      * Request to retrieve anchor by anchorId
-     * TODO
+     * 
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -61,7 +61,7 @@ export class AnchorRouter {
 
     /**
      * Request to retrieve anchors by nodeId
-     * TODO
+     * 
      * @param req request object coming from client
      * @param res response object to send to client
      */
@@ -80,7 +80,7 @@ export class AnchorRouter {
 
     /**
      * Request to retrieve anchors by nodeId
-     * TODO
+     * 
      * @param req request object coming from client
      * @param res response object to send to client
      */
