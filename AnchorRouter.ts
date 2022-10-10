@@ -66,15 +66,13 @@ export class AnchorRouter {
      * @param res response object to send to client
      */
     AnchorExpressRouter.post('/getAnchorsById', async (req: Request, res: Response) => {
-      ;async (req: Request, res: Response) => {
-        try {
-          const anchorIds = req.body.anchorIds
-          const response: IServiceResponse<IAnchor[]> =
-            await this.BackendAnchorGateway.getAnchorsById(anchorIds)
-          res.status(200).send(response)
-        } catch (e) {
-          res.status(500).send(e.message)
-        }
+      try {
+        const anchorIds = req.body.anchorIds
+        const response: IServiceResponse<IAnchor[]> =
+          await this.BackendAnchorGateway.getAnchorsById(anchorIds)
+        res.status(200).send(response)
+      } catch (e) {
+        res.status(500).send(e.message)
       }
     })
 
